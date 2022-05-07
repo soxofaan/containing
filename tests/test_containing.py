@@ -15,7 +15,7 @@ def test_dict_containing_basic():
     d = {"size": 3, "color": "green"}
     assert d == dict_containing()
     assert d == dict_containing({"size": 3})
-    assert d == dict_containing({"color": "blue"})
+    assert d == dict_containing({"color": "green"})
     assert d == dict_containing({"size": 3, "color": "green"})
     assert not (d == dict_containing({"size": 33, "color": "green"}))
     assert not (d == dict_containing({"size": 3, "color": "red"}))
