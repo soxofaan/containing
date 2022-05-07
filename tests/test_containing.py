@@ -1,4 +1,4 @@
-from containing import dict_containing
+from containing import dict_containing, dict_having_keys
 
 
 def test_dict_containing_empty():
@@ -81,3 +81,26 @@ def test_dict_containing_nesting():
             ),
         }
     }))
+
+
+def test_dict_having_keys_empty():
+    assert {} == dict_having_keys()
+    assert {1: 2} == dict_having_keys()
+    assert {"foo": "bar"} == dict_having_keys()
+
+    assert not ([] == dict_having_keys())
+    assert not (() == dict_having_keys())
+    assert not (set([]) == dict_having_keys())
+
+
+def test_dict_having_keys_basic():
+    d = {"size": 3, "color": "green"}
+    assert d == dict_having_keys()
+    assert d == dict_having_keys("size")
+    assert d == dict_having_keys("color")
+    assert d == dict_having_keys("size", "color")
+    assert d == dict_having_keys(["size", "color"])
+    assert d == dict_having_keys({"size", "color"})
+    assert not (d == dict_having_keys("speed"))
+    assert not (d == dict_having_keys(["size", "speed"]))
+    assert not (d == dict_having_keys({"size", "speed"}))
