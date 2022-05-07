@@ -19,6 +19,7 @@ def test_dict_containing_basic():
     assert d == dict_containing({"size": 3, "color": "green"})
     assert not (d == dict_containing({"size": 33, "color": "green"}))
     assert not (d == dict_containing({"size": 3, "color": "red"}))
+    assert not (d == dict_containing({"speed": 11}))
 
 
 def test_dict_containing_kwargs():
@@ -28,6 +29,7 @@ def test_dict_containing_kwargs():
     assert d == dict_containing({"size": 3}, color="green")
     assert not (d == dict_containing(size=4))
     assert not (d == dict_containing(color="red"))
+    assert not (d == dict_containing(speed=11))
 
 
 def test_dict_containing_other_key_types():

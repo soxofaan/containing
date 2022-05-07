@@ -8,7 +8,7 @@ class _DictMatcher:
 
     def __eq__(self, other):
         return isinstance(other, type(self.containing)) and \
-               self.containing == {k: other[k] for k in self.containing if k in other}
+               all(k in other and other[k] == v for k, v in self.containing.items())
 
     def __repr__(self):
         return repr(self.containing)
@@ -22,7 +22,6 @@ def dict_containing(items: dict = None, **kwargs):
         >>> assert actual == dict_containing({"size": 3})
     """
     return _DictMatcher(containing={**(items or {}), **kwargs})
-
 
 # TODO: `dict_having_keys` and `dict_not_having_keys`
 # TODO: helper to convert nested dict to nested `dict_containing` structure
