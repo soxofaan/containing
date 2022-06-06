@@ -1,4 +1,4 @@
-from containing import dict_containing, dict_having_keys
+from pytest_containing import dict_containing, dict_having_keys
 
 
 def test_dict_containing_empty():

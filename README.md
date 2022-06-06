@@ -1,12 +1,12 @@
-# Containing
+# pytest-containing
 
-pytest helper for asserting that a container (e.g. a dict, a list, ...)
+pytest helpers for asserting that a container (e.g. a dict, a list, ...)
 contains expected items.
 
 Usage example:
 
 ```python
-from containing import dict_containing
+from pytest_containing import dict_containing
 
 # Somewhere in your pytest powered test suite:
 actual = {
@@ -26,7 +26,7 @@ assert actual == dict_containing({"color": "blue"})
 
 ## Installation
 
-TODO (once published on PyPI: `pip install containing`)
+TODO (once published on PyPI: `pip install pytest-containing`)
 
 
 ## Why? (aka "Features")
@@ -42,6 +42,6 @@ assert actual == dict_containing({"color": "green"})
 
 However, once you want to check more complex situations 
 (e.g. multiple keys or nested structures), 
-`containing` will make things a lot easier.
+`pytest-containing` will make things a lot easier.
 
 
